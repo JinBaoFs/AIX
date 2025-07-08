@@ -23,7 +23,7 @@ import CustomWalletButton from "@w/components/CustomWalletButton";
 
 const LANGS = [
   {
-    name: '中文',
+    name: '简体中文',
     value: 'zh',
   },
   {
@@ -49,7 +49,7 @@ export default function Header(){
   return (
     <Center
       justifyContent={'space-between'}
-      h={'80px'}
+      h={'70px'}
       px={'5'}
       margin={'0 auto'}
       bg={colors.headBg}
@@ -64,52 +64,45 @@ export default function Header(){
       <Flex alignItems={'center'}>
         <Image 
           src={ `/images/menu.png`}
-          alt=''
-          w="32px"
-          h="32px"
+          alt='menu'
+          w="28px"
+          h="28px"
           mr="5"
         />
-        <Image 
-          src={ `/images/lang.png`}
-          alt=''
-          w="32px"
-          h="32px"
-          mr="5"
-        />
-        <Box mr={2}>
-          {/* <ConnectButton accountStatus="avatar" chainStatus="icon" showBalance={false} /> */}
-          <CustomWalletButton></CustomWalletButton>
-        </Box>
-        {/* <Menu isLazy>
-          <MenuButton borderRadius={'4px'} p={'6px'} _hover={{background:'#e5e5e5'}} bgColor={colors.main}>
-            <Flex alignItems={'center'}>
-              <Image 
-                src='/images/lang.png' 
-                alt=''
-                w="24px"
-                h="24px"
-              />
-            </Flex>
+        
+        <Menu isLazy>
+          <MenuButton>
+            <Image 
+              src={ `/images/lang.png`}
+              alt='lang'
+              w="28px"
+              h="28px"
+              mr="5"
+            />
           </MenuButton>
-          <MenuList fontSize={'14px'}>
-            { LANGS.map((item) => <MenuItem key={item.value} 
+          <MenuList fontSize={'14px'} border="none" bg={colors.noticBg} minWidth={"120px"} py={0}>
+            { LANGS.map((item) => 
+              <MenuItem key={item.value} 
                   onClick={ ()=> changeLanguage(item) } 
                   sx={{
-                    color: item.value === locale ? '#4e9cff' : colorMode == 'light' ? '#333' : 'white',
-                    background: 'none',
+                    color: colors.textTips,
+                    background: item.value === locale ? colors.tabActiveBg : 'none',
                   }}
+                  height={"50px"}
+                  overflow={"hidden"}
+                  borderRadius={"4px"}
                 >
-                <Flex alignItems={'center'}>
+                <Flex alignItems={'center'} width={'120px'} justifyContent={"center"}>
                   <Text>{ item.name }</Text>
-                  {
-                    locale === item.value && 
-                    <CheckIcon fontSize={'12px'} ml={1}></CheckIcon>
-                  }
                 </Flex>
               </MenuItem>)
             }
           </MenuList>
-        </Menu> */}
+        </Menu>
+        <Box mr={2}>
+          {/* <ConnectButton accountStatus="avatar" chainStatus="icon" showBalance={false} /> */}
+          <CustomWalletButton></CustomWalletButton>
+        </Box>
 
       </Flex>
     </Center>

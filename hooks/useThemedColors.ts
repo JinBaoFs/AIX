@@ -10,6 +10,7 @@ export const useThemedCardColors = () => ({
   textTips: useColorModeValue('#555555',"#555555"),
   textPrimary: useColorModeValue('#A2EE30',"#A2EE30"),
   borderPrimary: useColorModeValue('#A2EE30', '#A2EE30'),
+  tabActiveBg: useColorModeValue('#2E2C2C','#2E2C2C'),
 
   title: useColorModeValue('gray.800', 'whiteAlpha.900'),
   desc: useColorModeValue('gray.600', 'gray.400'),
