@@ -18,6 +18,8 @@ import {
 import { ConnectButton } from '@rainbow-me/rainbowkit';
 import { CheckIcon } from "@chakra-ui/icons";
 import { LANGITEM } from "@w/types/global";
+import { useThemedCardColors } from '@w/hooks/useThemedColors'
+import CustomWalletButton from "@w/components/CustomWalletButton";
 
 const LANGS = [
   {
@@ -38,7 +40,7 @@ export default function Header(){
   const searchParams = useSearchParams().toString();
 
   const { colorMode, toggleColorMode } = useColorMode();
-  console.log(colorMode)
+  const colors = useThemedCardColors();
 
   const changeLanguage = (item:LANGITEM) => {
     changeLang(item.value,searchParams)
@@ -47,25 +49,39 @@ export default function Header(){
   return (
     <Center
       justifyContent={'space-between'}
-      maxW={'1400px'}
-      h={'50px'}
+      h={'80px'}
       px={'5'}
       margin={'0 auto'}
+      bg={colors.headBg}
     >
       <Box>
-        <Text 
-          fontWeight={'bold'}
-          fontSize={'24px'}
-        >
-          LOGO
-        </Text>
+        <Image 
+          src='/images/logo.png' 
+          alt=''
+          w="70px"
+        />
       </Box>
       <Flex alignItems={'center'}>
+        <Image 
+          src={ `/images/menu.png`}
+          alt=''
+          w="32px"
+          h="32px"
+          mr="5"
+        />
+        <Image 
+          src={ `/images/lang.png`}
+          alt=''
+          w="32px"
+          h="32px"
+          mr="5"
+        />
         <Box mr={2}>
-          <ConnectButton accountStatus="avatar" chainStatus="icon" showBalance={false} />
+          {/* <ConnectButton accountStatus="avatar" chainStatus="icon" showBalance={false} /> */}
+          <CustomWalletButton></CustomWalletButton>
         </Box>
-        <Menu isLazy>
-          <MenuButton borderRadius={'4px'} p={'6px'} _hover={{background:'#e5e5e5'}} bgColor={'#efefef'}>
+        {/* <Menu isLazy>
+          <MenuButton borderRadius={'4px'} p={'6px'} _hover={{background:'#e5e5e5'}} bgColor={colors.main}>
             <Flex alignItems={'center'}>
               <Image 
                 src='/images/lang.png' 
@@ -93,15 +109,8 @@ export default function Header(){
               </MenuItem>)
             }
           </MenuList>
-        </Menu>
-        <Box ml={2} cursor={'pointer'} color={'#333'} onClick={toggleColorMode} fontSize={'16px'} borderRadius={'4px'} p={'6px'} _hover={{background:'#e5e5e5'}} bgColor={'#efefef'}>
-          <Image 
-              src={ `/images/${colorMode === 'light'? 'dark' : 'light'}.png`}
-              alt=''
-              w="24px"
-              h="24px"
-            />
-        </Box>
+        </Menu> */}
+
       </Flex>
     </Center>
   )
