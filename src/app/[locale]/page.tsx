@@ -59,6 +59,9 @@ export default function HomePage() {
 
       {/* 平台代币信息 */}
       <MarketDataBar />
+
+      {/* 轮播图 */}
+      <Carousel></Carousel>
       
 
       {/* <Text>{t('hello')}</Text> */}

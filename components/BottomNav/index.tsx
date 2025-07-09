@@ -6,6 +6,7 @@ import { usePathname, useRouter } from 'next/navigation'
 import { useNav } from '@w/context/navContext'
 import { useThemedCardColors } from '@w/hooks/useThemedColors'
 import { useLocale } from "next-intl";
+import Link from 'next/link'
 
 const MotionFlex = motion(Flex)
 
@@ -14,16 +15,16 @@ const navItems = [
     label: 'Home',
     path: '/',
     icon: '/images/nav_01_default.png',
-    activeIcon: '/images/nav_01_default.png',
+    activeIcon: '/images/nav_01_active.png',
   },
   {
-    label: 'Subscribe',
-    path: '/subscribe',
+    label: 'Publish',
+    path: '/publish',
     icon: '/images/nav_02_default.png',
     activeIcon: '/images/nav_02_active.png',
   },
   {
-    label: 'Vote',
+    label: 'Involved',
     path: '/vote',
     icon: '/images/nav_03_default.png',
     activeIcon: '/images/nav_03_active.png',
@@ -50,8 +51,6 @@ export default function AnimatedBottomNav() {
 
   // 或者直接使用包含语言前缀的完整路径
   const fullPath = rawPath;
-  console.log(fullPath)
-
 
   return (
     <AnimatePresence>
@@ -71,32 +70,34 @@ export default function AnimatedBottomNav() {
           animate={{ y: 0, opacity: 1 }}
           exit={{ y: 100, opacity: 0 }}
           transition={{ duration: 0.3 }}
+          justifyContent={'space-between'}
         >
           {navItems.map((item) => {
             const isActive = fullPath === item.path
             return (
-              <Flex
-                key={item.path}
-                onClick={() => router.push(item.path)}
-                cursor="pointer"
-                p={3}
-                borderRadius="full"
-                align="center"
-                bg={isActive ? colors.tabActiveBg : 'transparent'}
-                transition="all 0.2s"
-              >
-                <Image
-                  src={isActive ? item.activeIcon : item.icon}
-                  alt={item.label}
-                  boxSize="22px"
-                  mr={isActive ? 2 : 0}
-                />
-                {isActive && (
-                  <Text fontSize="sm" fontWeight="medium" color="white">
-                    {item.label}
-                  </Text>
-                )}
-              </Flex>
+              <Link href={`/${locale}${item.path}`} locale={locale} key={item.path}>
+                <Flex
+                  cursor="pointer"
+                  p={3}
+                  borderRadius="full"
+                  align="center"
+                  bg={isActive ? colors.tabActiveBg : 'transparent'}
+                  transition="all 0.2s"
+                >
+                  <Image
+                    src={isActive ? item.activeIcon : item.icon}
+                    alt={item.label}
+                    boxSize="22px"
+                    mr={isActive ? 2 : 0}
+                  />
+                  {isActive && (
+                    <Text fontSize="sm" fontWeight="medium" color="white">
+                      {item.label}
+                    </Text>
+                  )}
+                </Flex>
+              </Link>
+              
             )
           })}
         </MotionFlex>
