@@ -12,7 +12,8 @@ import {
   QueryClient,
 } from "@tanstack/react-query";
 import Header from '@w/components/Header';
-
+import BottomNav from '@w/components/BottomNav';
+import { NavProvider } from '@w/context/navContext';
 
 const Provider = ({ children }:{ children: React.ReactNode }) => {
     const queryClient = new QueryClient();
@@ -25,8 +26,11 @@ const Provider = ({ children }:{ children: React.ReactNode }) => {
           <WagmiProvider config={config}>
             <QueryClientProvider client={queryClient}>
               <RainbowKitProvider locale={locale as Locale}>
-                <Header></Header>
-                {children}
+                <NavProvider>
+                  <Header></Header>
+                  {children}
+                  <BottomNav></BottomNav>
+                </NavProvider>
               </RainbowKitProvider>
             </QueryClientProvider>
           </WagmiProvider>

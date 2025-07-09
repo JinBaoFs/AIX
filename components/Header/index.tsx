@@ -20,6 +20,7 @@ import { CheckIcon } from "@chakra-ui/icons";
 import { LANGITEM } from "@w/types/global";
 import { useThemedCardColors } from '@w/hooks/useThemedColors'
 import CustomWalletButton from "@w/components/CustomWalletButton";
+import { useNav } from '@w/context/navContext'
 
 const LANGS = [
   {
@@ -41,6 +42,7 @@ export default function Header(){
 
   const { colorMode, toggleColorMode } = useColorMode();
   const colors = useThemedCardColors();
+  const { toggleNav } = useNav()
 
   const changeLanguage = (item:LANGITEM) => {
     changeLang(item.value,searchParams)
@@ -68,6 +70,7 @@ export default function Header(){
           w="28px"
           h="28px"
           mr="5"
+          onClick={toggleNav}
         />
         
         <Menu isLazy>
