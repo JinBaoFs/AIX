@@ -13,18 +13,14 @@ import {
   MenuList,
   MenuItem,
   Image,
-  useColorMode
 } from "@chakra-ui/react";
-import { ConnectButton } from '@rainbow-me/rainbowkit';
-import { CheckIcon } from "@chakra-ui/icons";
 import { LANGITEM } from "@w/types/global";
 import { useThemedCardColors } from '@w/hooks/useThemedColors'
 import CustomWalletButton from "@w/components/CustomWalletButton";
-import { useNav } from '@w/context/navContext'
 
 const LANGS = [
   {
-    name: '简体中文',
+    name: '繁体中文',
     value: 'zh',
   },
   {
@@ -40,9 +36,7 @@ export default function Header(){
   const { changeLang } = useChangeLng()
   const searchParams = useSearchParams().toString();
 
-  const { colorMode, toggleColorMode } = useColorMode();
   const colors = useThemedCardColors();
-  const { toggleNav } = useNav()
 
   const changeLanguage = (item:LANGITEM) => {
     changeLang(item.value,searchParams)
@@ -70,7 +64,6 @@ export default function Header(){
           w="28px"
           h="28px"
           mr="5"
-          onClick={toggleNav}
         />
         
         <Menu isLazy>

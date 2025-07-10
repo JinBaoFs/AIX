@@ -21,11 +21,11 @@ const MarketDataBar = () => {
         flexWrap="nowrap"
         overflowX="auto"
       >
-        <Text fontSize="xs" whiteSpace="nowrap">
+        <Text fontSize="10px" whiteSpace="nowrap">
           AIX Price: <Text as="span" color={colors.main}>$0.003U</Text>
         </Text>
 
-        <Text fontSize="xs" whiteSpace="nowrap">
+        <Text fontSize="10px" whiteSpace="nowrap">
           AIX-USDT Pair: 12.34M AIX / 37.02K USDT
         </Text>
       </Flex>

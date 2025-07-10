@@ -18,7 +18,7 @@ type NavProviderProps = {
 }
 
 export const NavProvider = ({ children }: NavProviderProps) => {
-  const [isNavOpen, setIsNavOpen] = useState(false)
+  const [isNavOpen, setIsNavOpen] = useState(true)
 
   const toggleNav = () => {
     setIsNavOpen(prev => !prev)

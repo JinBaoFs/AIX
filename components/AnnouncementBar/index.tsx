@@ -19,7 +19,7 @@ function AnnouncementMarquee({
   speed = 100,
   py = 2,
   px = 4,
-  iconSrc = '/images/menu.png',
+  iconSrc = '/images/notice.png',
   iconAlt = 'menu'
 }: AnnouncementMarqueeProps) {
   // 复制消息数组以实现无缝滚动
