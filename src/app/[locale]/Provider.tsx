@@ -14,6 +14,7 @@ import { NavProvider } from '@w/context/navContext';
 import { Provider as ReduxProvider } from 'react-redux';
 import { PersistGate } from 'redux-persist/integration/react';
 import { store, persistor } from '@w/store/store';
+import AuthModal from '@w/components/AuthModal';
 
 const Provider = ({ children }: { children: React.ReactNode }) => {
   const queryClient = new QueryClient();
@@ -31,6 +32,7 @@ const Provider = ({ children }: { children: React.ReactNode }) => {
                     <Header />
                     {children}
                     <BottomNav />
+                    <AuthModal></AuthModal>
                   </NavProvider>
                 </RainbowKitProvider>
               </QueryClientProvider>
