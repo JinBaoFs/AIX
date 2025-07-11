@@ -1,8 +1,12 @@
 'use client';
 /* theme.ts */
 import { extendTheme } from "@chakra-ui/react";
+import { Button } from './components/button'
 
 const theme = extendTheme({
+  components: {
+    Button,
+  },
   config: {
     initialColorMode: "dark",  // 设置初始模式为 light（白天模式）
     useSystemColorMode: false,  // 是否根据系统设置的颜色模式

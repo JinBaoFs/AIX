@@ -46,7 +46,7 @@ export default function HomePage() {
       {/* 轮播图 */}
       <Carousel></Carousel>
       
-
+      <div className="h-[80vh]"></div>
       {/* <Text>{t('hello')}</Text> */}
     </div>
   );

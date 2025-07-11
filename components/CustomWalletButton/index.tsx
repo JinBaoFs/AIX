@@ -33,10 +33,9 @@ export default function CustomWalletButton() {
                 return (
                   <Button
                     onClick={openConnectModal}
-                    bg={colors.main}
-                    color={colors.textMain}
                     rounded="full"
                     fontWeight="bold"
+                    variant={'solid'}
                   >
                     Connect
                   </Button>
@@ -47,8 +46,8 @@ export default function CustomWalletButton() {
                 return (
                   <Button
                     onClick={openChainModal}
-                    className="px-4 py-2 bg-red-500 text-white rounded-full"
                     rounded="full"
+                    variant={'solid'}
                   >
                     Wrong network
                   </Button>
@@ -58,8 +57,8 @@ export default function CustomWalletButton() {
               return (
                 <Button
                   onClick={openAccountModal}
-                  className="px-4 py-2 bg-purple-600 text-white rounded-full hover:bg-purple-700 transition"
                   rounded="full"
+                  variant={'solid'}
                 >
                   {account.displayName}
                 </Button>

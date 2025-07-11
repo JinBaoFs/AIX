@@ -49,6 +49,9 @@ export default function Header(){
       px={'5'}
       margin={'0 auto'}
       bg={colors.headBg}
+      position="sticky"
+      top="0"
+      zIndex="1000"
     >
       <Box>
         <Image 
@@ -76,7 +79,7 @@ export default function Header(){
               mr="5"
             />
           </MenuButton>
-          <MenuList fontSize={'14px'} border="none" bg={colors.noticBg} minWidth={"120px"} py={0}>
+          <MenuList fontSize={'14px'} border="none" bg={colors.noticBg} minWidth={"120px"} py={0} zIndex="popover">
             { LANGS.map((item) => 
               <MenuItem key={item.value} 
                   onClick={ ()=> changeLanguage(item) } 
