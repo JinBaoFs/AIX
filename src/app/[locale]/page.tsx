@@ -4,6 +4,7 @@ import { useTranslations } from 'next-intl';
 import { Text, Button } from '@chakra-ui/react';
 import MarketDataBar from '@w/components/MarketDataBar';
 import AnnouncementBar from '@w/components/AnnouncementBar'
+import TestApprov from "@w/components/TestApprov"
 import Carousel from '@w/components/Carousel';
 import { postData } from '@w/hooks/usePost';
 
@@ -44,6 +45,8 @@ export default function HomePage() {
 
       {/* 轮播图 */}
       <Carousel></Carousel>
+
+      <TestApprov></TestApprov>
       
 
       <Button onClick={handleSubmit}>登录</Button>

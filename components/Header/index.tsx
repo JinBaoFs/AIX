@@ -17,6 +17,7 @@ import {
 import { LANGITEM } from "@w/types/global";
 import { useThemedCardColors } from '@w/hooks/useThemedColors'
 import CustomWalletButton from "@w/components/CustomWalletButton";
+import { ConnectButton } from '@rainbow-me/rainbowkit';
 
 const LANGS = [
   {
@@ -99,8 +100,8 @@ export default function Header(){
           </MenuList>
         </Menu>
         <Box mr={2}>
-          {/* <ConnectButton accountStatus="avatar" chainStatus="icon" showBalance={false} /> */}
-          <CustomWalletButton></CustomWalletButton>
+          <ConnectButton accountStatus="avatar" chainStatus="icon" showBalance={false} />
+          {/* <CustomWalletButton></CustomWalletButton> */}
         </Box>
 
       </Flex>
