@@ -7,13 +7,14 @@ import {
   argentWallet
 } from '@rainbow-me/rainbowkit/wallets';
 import {
-  bsc
+  bsc,
+  mainnet
 } from 'wagmi/chains';
 
 export const config = getDefaultConfig({
   appName: 'AIX',
   projectId: '4a6d9c959064316cc282c1a80420ad50',
-  chains: [bsc],
+  chains: [bsc,mainnet],
   wallets: [
     {
       groupName: 'Popular',

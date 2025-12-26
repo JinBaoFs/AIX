@@ -18,7 +18,6 @@ export default function HomePage() {
   const t = useTranslations('HomePage');
 
   const handleSubmit = async () => {
-    // console.log(process.env.NEXT_PUBLIC_API_BASE_URL)
     const res = await postData(
       '/oauth/token',
       {
@@ -45,6 +44,9 @@ export default function HomePage() {
 
       {/* 轮播图 */}
       <Carousel></Carousel>
+      
+
+      <Button onClick={handleSubmit}>登录</Button>
       
       <div className="h-[80vh]"></div>
       {/* <Text>{t('hello')}</Text> */}

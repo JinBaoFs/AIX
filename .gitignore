@@ -30,8 +30,25 @@ yarn-debug.log*
 yarn-error.log*
 .pnpm-debug.log*
 
-# env files (can opt-in for committing if needed)
+# ======================
+# 环境变量文件配置
+# ======================
+# 个人本地配置（不提交）
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# 所有 .env 文件默认忽略
 .env*
+
+# 但是显式允许以下配置文件（需要提交）
+!.env.example
+!.env.production
+!.env.development
+!.env.test
+!.env.staging
+# ======================
 
 # vercel
 .vercel
@@ -39,3 +56,18 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# IDE
+.vscode
+.idea
+*.swp
+*.swo
+
+# 日志
+logs
+*.log
+
+# 操作系统文件
+Thumbs.db
+ehthumbs.db
+Desktop.ini
