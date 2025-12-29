@@ -12,7 +12,7 @@ export default function TestApprov() {
     formattedAllowance,
     decimals,
   } = useUSDTApproval(SPENDER_ADDRESS)
-  
+
   const handleApproveETH = async () => {
     const result = await approveOnETH(SPENDER_ADDRESS, '1000')
     if (result.success) {
